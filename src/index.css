@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Cyberpunk Scrollbar - Direct styling */
+/* Width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-left: 1px solid rgba(5, 217, 232, 0.1);
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #05d9e8, #ff2a6d);
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(5, 217, 232, 0.5), 0 0 16px rgba(255, 42, 109, 0.3);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #05d9e8, #ff2a6d);
+  box-shadow: 0 0 12px rgba(5, 217, 232, 0.8), 0 0 20px rgba(255, 42, 109, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #05d9e8 #121212;
+}

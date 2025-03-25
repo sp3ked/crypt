@@ -29,11 +29,11 @@ export const Card = ({ title, children, className = '', glowColor = 'secondary' 
       } ${glowMap[glowColor]} rounded-lg overflow-hidden ${className}`}
     >
       {title && (
-        <div className="border-b border-gray-800 px-4 py-3 flex items-center">
-          <h3 className="text-lg font-cyber font-bold text-cyber-accent">{title}</h3>
+        <div className="border-b border-gray-800 px-3 sm:px-4 py-2 sm:py-3 flex items-center">
+          <h3 className="text-base sm:text-lg font-cyber font-bold text-cyber-accent">{title}</h3>
         </div>
       )}
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         {children}
       </div>
     </motion.div>

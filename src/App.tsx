@@ -39,32 +39,32 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-black text-cyber-accent flex flex-col">
+    <div className="min-h-screen h-screen bg-cyber-black text-cyber-accent flex flex-col">
       <Header globalData={globalData} />
       
-      {/* Splitscreen Layout: 75% Crypto Dashboard | 25% Chatbot */}
-      <div className="flex flex-grow overflow-hidden">
-        {/* Crypto Dashboard - 75% */}
-        <div className="w-3/4 overflow-y-auto p-6">
+      {/* Main Content Area - Takes remaining height */}
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        {/* Crypto Dashboard */}
+        <div className="w-full lg:w-3/4 overflow-y-auto p-4 lg:p-6">
           {/* Top Coins */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
             {topCoins.slice(0, 3).map((coin: any) => (
               <CoinCard key={coin.id} coin={coin} />
             ))}
           </div>
           
           {/* Market Overview & Top Performers */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
             <div className="lg:col-span-2">
               <Card title="Crypto Market Overview">
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-cyber-dark/50 p-4 rounded-md border border-gray-800">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 mb-4">
+                  <div className="bg-cyber-dark/50 p-3 lg:p-4 rounded-md border border-gray-800">
                     <div className="text-xs text-gray-500 mb-1">Total Market Cap</div>
                     <div className="text-xl font-mono">
                       ${((globalData?.total_market_cap?.usd || 0) / 1e12).toFixed(2)}T
                     </div>
                   </div>
-                  <div className="bg-cyber-dark/50 p-4 rounded-md border border-gray-800">
+                  <div className="bg-cyber-dark/50 p-3 lg:p-4 rounded-md border border-gray-800">
                     <div className="text-xs text-gray-500 mb-1">24h Volume</div>
                     <div className="text-xl font-mono">
                       ${((globalData?.total_volume?.usd || 0) / 1e9).toFixed(2)}B
@@ -72,20 +72,20 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="text-center py-6 text-cyber-secondary font-cyber">
+                <div className="text-center py-4 lg:py-6 text-cyber-secondary font-cyber">
                   CRYPTO MARKET DASHBOARD
                 </div>
                 
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-cyber-dark/50 p-3 rounded-md border border-gray-800 text-center">
+                <div className="grid grid-cols-3 gap-3 lg:gap-4">
+                  <div className="bg-cyber-dark/50 p-2 lg:p-3 rounded-md border border-gray-800 text-center">
                     <div className="text-xs text-gray-500 mb-1">BTC Dominance</div>
                     <div className="font-mono">{(globalData?.market_cap_percentage?.btc || 0).toFixed(1)}%</div>
                   </div>
-                  <div className="bg-cyber-dark/50 p-3 rounded-md border border-gray-800 text-center">
+                  <div className="bg-cyber-dark/50 p-2 lg:p-3 rounded-md border border-gray-800 text-center">
                     <div className="text-xs text-gray-500 mb-1">ETH Dominance</div>
                     <div className="font-mono">{(globalData?.market_cap_percentage?.eth || 0).toFixed(1)}%</div>
                   </div>
-                  <div className="bg-cyber-dark/50 p-3 rounded-md border border-gray-800 text-center">
+                  <div className="bg-cyber-dark/50 p-2 lg:p-3 rounded-md border border-gray-800 text-center">
                     <div className="text-xs text-gray-500 mb-1">Active Coins</div>
                     <div className="font-mono">{globalData?.active_cryptocurrencies || 0}</div>
                   </div>
@@ -100,7 +100,7 @@ function App() {
           
           {/* More Coins */}
           <Card title="Top Performing Coins">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
               {topCoins.slice(3, 11).map((coin: any) => (
                 <div key={coin.id} className="flex items-center p-2 border border-gray-800 rounded-md">
                   <img src={coin.image} alt={coin.name} className="w-8 h-8 mr-3" />
@@ -120,15 +120,13 @@ function App() {
           </Card>
         </div>
         
-        {/* Chatbot - 25%, filling the entire height */}
-        <div className="w-1/4 border-l border-gray-800">
-          <div className="h-full">
-            <ChatBot />
-          </div>
+        {/* Chatbot - Fixed size that works well for web app */}
+        <div className="w-full h-96 lg:h-auto lg:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-800 flex flex-col overflow-hidden">
+          <ChatBot />
         </div>
       </div>
       
-      <footer className="border-t border-gray-800 p-4 text-center text-xs text-gray-600">
+      <footer className="border-t border-gray-800 p-3 lg:p-4 text-center text-xs text-gray-600">
         <p>CRYPTOVERSE © {new Date().getFullYear()} | Cyberpunk Crypto Dashboard</p>
       </footer>
     </div>
