@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '../ui/Button';
-import { FaRobot, FaUser, FaPaperPlane, FaExclamationTriangle } from 'react-icons/fa';
+import { FaUser, FaPaperPlane, FaExclamationTriangle, FaTerminal } from 'react-icons/fa';
 import { sendChatMessage } from '../../api/chatbotApi';
 
 export const ChatBot = () => {
   const [messages, setMessages] = useState<{ type: 'user' | 'bot'; text: string }[]>([
-    { type: 'bot', text: 'Hello! I\'m CryptoG, your crypto assistant. Ask me anything about cryptocurrencies, blockchain, or the market!' }
+    { type: 'bot', text: 'Terminal ready. System online. Type your query for the /sys/bot interface...' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +54,7 @@ export const ChatBot = () => {
       {/* Header - fixed at top */}
       <div className="border-b border-gray-800 px-3 sm:px-4 py-2 sm:py-3 flex items-center bg-cyber-dark">
         <h3 className="text-base sm:text-lg font-cyber font-bold text-cyber-accent flex items-center">
-          <FaRobot className="text-cyber-secondary mr-2" /> CryptoG Assistant
+          <FaTerminal className="text-cyber-secondary mr-2" /> /sys/bot
         </h3>
       </div>
       
@@ -71,8 +71,8 @@ export const ChatBot = () => {
               className={`flex items-start gap-2 sm:gap-3 ${message.type === 'user' ? 'justify-end' : ''}`}
             >
               {message.type === 'bot' && (
-                <div className="bg-cyber-secondary w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  <FaRobot className="text-black text-sm sm:text-base" />
+                <div className="bg-cyber-secondary w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 font-mono">
+                  <span className="text-black text-xs sm:text-sm font-bold">{'>'}<span className="animate-pulse">_</span></span>
                 </div>
               )}
               
@@ -96,8 +96,8 @@ export const ChatBot = () => {
           
           {isLoading && (
             <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
-              <div className="bg-cyber-secondary w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center">
-                <FaRobot className="text-black text-sm sm:text-base" />
+              <div className="bg-cyber-secondary w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono">
+                <span className="text-black text-xs sm:text-sm font-bold">{'>'}<span className="animate-pulse">_</span></span>
               </div>
               <div className="flex gap-1">
                 <span className="animate-pulse">.</span>
@@ -126,7 +126,7 @@ export const ChatBot = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask something about crypto..."
+            placeholder="$ Enter command..."
             className="flex-1 bg-cyber-black/50 border border-gray-800 rounded-md px-2 sm:px-3 py-2 text-sm text-cyber-accent placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-cyber-secondary"
             disabled={isLoading}
           />
