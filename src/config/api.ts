@@ -1,7 +1,7 @@
 // API configuration
 
 // Backend API URL
-export const API_BASE_URL = 'http://localhost:5000/api';
+export const API_BASE_URL = 'https://prompter-450405.uk.r.appspot.com/api';
 
 // API endpoints
 export const API_ENDPOINTS = {
