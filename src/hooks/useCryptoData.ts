@@ -25,9 +25,9 @@ export const useCryptoData = () => {
         fetchTrendingCoins()
       ]);
       
-      setTopCoins(topCoinsData);
-      setGlobalData(globalDataResponse);
-      setTrendingCoins(trendingCoinsData);
+      if (topCoinsData.length > 0) setTopCoins(topCoinsData);
+      if (Object.keys(globalDataResponse).length > 0) setGlobalData(globalDataResponse);
+      if (trendingCoinsData.length > 0) setTrendingCoins(trendingCoinsData);
       setError(null);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch crypto data';

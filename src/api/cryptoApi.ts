@@ -14,7 +14,7 @@ export const fetchTrendingCoins = async () => {
   }
 };
 
-export const fetchTopCoins = async (limit = 10) => {
+export const fetchTopCoins = async (limit = 50) => {
   try {
     const response = await coinGeckoApi.get('/coins/markets', {
       params: {

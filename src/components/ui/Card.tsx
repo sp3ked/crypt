@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 interface CardProps {
-  title?: string;
+  title?: ReactNode;
   children: ReactNode;
   className?: string;
   glowColor?: 'primary' | 'secondary' | 'green' | 'purple';
@@ -30,7 +30,9 @@ export const Card = ({ title, children, className = '', glowColor = 'secondary' 
     >
       {title && (
         <div className="border-b border-gray-800 px-3 sm:px-4 py-2 sm:py-3 flex items-center">
-          <h3 className="text-base sm:text-lg font-cyber font-bold text-cyber-accent">{title}</h3>
+          <h3 className="text-base sm:text-lg font-cyber font-bold text-cyber-accent flex items-center">
+            {title}
+          </h3>
         </div>
       )}
       <div className="p-3 sm:p-4">

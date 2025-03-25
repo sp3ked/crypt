@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .skull-shape { stroke: #05d9e8; fill: none; }
+    .skull-eyes { fill: #ff2a6d; }
+    .skull-glow { filter: drop-shadow(0 0 5px #05d9e8); }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+  
+  <g class="skull-glow pulse">
+    <!-- Skull shape -->
+    <path class="skull-shape" d="M12 2a8 8 0 0 0-8 8v4a3 3 0 0 0 3 3h2v2a3 3 0 0 0 6 0v-2h2a3 3 0 0 0 3-3v-4a8 8 0 0 0-8-8z" />
+    
+    <!-- Eyes -->
+    <circle class="skull-eyes" cx="9" cy="9" r="1.5" />
+    <circle class="skull-eyes" cx="15" cy="9" r="1.5" />
+    
+    <!-- Nose -->
+    <path class="skull-shape" d="M12 13v2" />
+    
+    <!-- Teeth -->
+    <path class="skull-shape" d="M10 17v-1" />
+    <path class="skull-shape" d="M12 17v-1" />
+    <path class="skull-shape" d="M14 17v-1" />
+    
+    <!-- Circuit lines -->
+    <path class="skull-shape" d="M6 9h-2" />
+    <path class="skull-shape" d="M20 9h-2" />
+    <path class="skull-shape" d="M12 4v-2" />
+  </g>
+</svg> 

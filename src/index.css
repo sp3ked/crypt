@@ -33,3 +33,144 @@
   scrollbar-width: thin;
   scrollbar-color: #05d9e8 #121212;
 }
+
+/* Cyberpunk Night City Background */
+.bg-night-city {
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(11, 11, 19, 1) 70%,
+    rgba(20, 9, 30, 0.9) 90%,
+    rgba(25, 10, 35, 0.8) 100%
+  );
+}
+
+/* Cyberpunk Grid Pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(5, 217, 232, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(5, 217, 232, 0.1) 1px, transparent 1px);
+}
+
+/* Building glow effect */
+.building-glow {
+  box-shadow: 0 0 5px rgba(5, 217, 232, 0.15);
+}
+
+/* Car lights animation */
+@keyframes car-lights {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-car-lights {
+  animation: car-lights 8s linear infinite;
+}
+
+/* Animated glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 0 rgba(255, 42, 109, 0.7), 0 0 0 rgba(5, 217, 232, 0.7);
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    text-shadow: 1px 0 0 rgba(255, 42, 109, 0.7), -1px 0 0 rgba(5, 217, 232, 0.7);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+    text-shadow: 2px 0 0 rgba(255, 42, 109, 0.7), -2px 0 0 rgba(5, 217, 232, 0.7);
+  }
+  60% {
+    transform: translate(2px, 1px);
+    text-shadow: -1px 0 0 rgba(255, 42, 109, 0.7), 1px 0 0 rgba(5, 217, 232, 0.7);
+  }
+  80% {
+    transform: translate(2px, -1px);
+    text-shadow: -2px 0 0 rgba(255, 42, 109, 0.7), 2px 0 0 rgba(5, 217, 232, 0.7);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 0 rgba(255, 42, 109, 0.7), 0 0 0 rgba(5, 217, 232, 0.7);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.5s linear;
+}
+
+/* Scan line animation */
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 8s linear infinite;
+}
+
+/* Extra animations */
+@keyframes pulse-purple {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(114, 9, 183, 0.4), 0 0 10px rgba(114, 9, 183, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(114, 9, 183, 0.7), 0 0 20px rgba(114, 9, 183, 0.4);
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(61, 220, 151, 0.4), 0 0 10px rgba(61, 220, 151, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(61, 220, 151, 0.7), 0 0 20px rgba(61, 220, 151, 0.4);
+  }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(5, 217, 232, 0.4), 0 0 10px rgba(5, 217, 232, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.7), 0 0 20px rgba(5, 217, 232, 0.4);
+  }
+}
+
+@keyframes pulse-pink {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 42, 109, 0.4), 0 0 10px rgba(255, 42, 109, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.7), 0 0 20px rgba(255, 42, 109, 0.4);
+  }
+}
+
+.animate-pulse-purple {
+  animation: pulse-purple 2s infinite ease-in-out;
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 2s infinite ease-in-out;
+}
+
+.animate-pulse-pink {
+  animation: pulse-pink 2s infinite ease-in-out;
+}
