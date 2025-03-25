@@ -6,26 +6,23 @@
 /* Width */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #121212;
-  border-left: 1px solid rgba(5, 217, 232, 0.1);
 }
 
 /* Thumb */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #05d9e8, #ff2a6d);
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 8px rgba(5, 217, 232, 0.5), 0 0 16px rgba(255, 42, 109, 0.3);
+  background: #05d9e8;
+  border-radius: 4px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #05d9e8, #ff2a6d);
-  box-shadow: 0 0 12px rgba(5, 217, 232, 0.8), 0 0 20px rgba(255, 42, 109, 0.5);
+  background: rgba(5, 217, 232, 0.8);
 }
 
 /* Firefox */
@@ -71,6 +68,40 @@
   animation: car-lights 8s linear infinite;
 }
 
+/* Digital noise effect for cyberpunk aesthetic */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+/* Text data corruption effect */
+@keyframes text-corruption {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(2px);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translateX(-2px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  70% {
+    opacity: 0.6;
+  }
+}
+
+.animate-text-corruption {
+  animation: text-corruption 3s infinite;
+  animation-timing-function: steps(1, end);
+  display: inline-block;
+}
+
 /* Animated glitch effect */
 @keyframes glitch {
   0% {
@@ -103,23 +134,52 @@
   animation: glitch 0.5s linear;
 }
 
+/* Data transmission effect */
+@keyframes data-transmission {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-data-transmission {
+  animation: data-transmission 4s linear infinite;
+}
+
 /* Scan line animation */
 @keyframes scan-line {
   0% {
-    transform: translateY(-100%);
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.3;
+    top: 0%;
   }
   100% {
-    transform: translateY(100vh);
-    opacity: 0.5;
+    top: 100%;
+  }
+}
+
+@keyframes scan-line-fast {
+  0% {
+    top: -10%;
+    opacity: 0.6;
+  }
+  100% {
+    top: 110%;
+    opacity: 0.2;
   }
 }
 
 .animate-scan-line {
-  animation: scan-line 8s linear infinite;
+  animation: scan-line 4s linear infinite;
+}
+
+.animate-scan-line-fast {
+  animation: scan-line-fast 1.5s ease-in-out infinite;
 }
 
 /* Extra animations */
@@ -173,4 +233,26 @@
 
 .animate-pulse-pink {
   animation: pulse-pink 2s infinite ease-in-out;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

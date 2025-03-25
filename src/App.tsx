@@ -4,6 +4,7 @@ import { Header } from './components/dashboard/Header';
 import { CoinCard } from './components/dashboard/CoinCard';
 import { TrendingCoins } from './components/dashboard/TrendingCoins';
 import { ChatBot } from './components/dashboard/ChatBot';
+import { MarketNewsBanner } from './components/dashboard/MarketNewsBanner';
 import { Card } from './components/ui/Card';
 import { Button } from './components/ui/Button';
 import { motion } from 'framer-motion';
@@ -390,6 +391,11 @@ function App() {
         >
           <ChatBot />
         </motion.div>
+      </div>
+      
+      {/* News Feed Banner - Now at the bottom */}
+      <div className="relative z-10 mt-auto border-t border-cyber-primary/30">
+        <MarketNewsBanner />
       </div>
     </div>
   );
